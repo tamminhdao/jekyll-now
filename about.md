@@ -8,8 +8,5 @@ Some information about you!
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+After completing one Udacity nanodegree, I am now a student apprentice at 8th Light, a software consulting company in Chicago. 
+In this blog, I will share my experience as I learn sofeware development. 
