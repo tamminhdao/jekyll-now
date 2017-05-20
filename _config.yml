@@ -6,10 +6,10 @@
 name: Tam Dao
 
 # Short bio or description (displayed in the header)
-description: Student Apprentice at 8th Light Chicago
+description: Student Apprentice
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: 
+avatar: /images/logo_min.svg
 
 #
 # Flags below are optional
@@ -21,9 +21,9 @@ footer-links:
   email:
   facebook:
   flickr:
-  github: 
+  github: tamminhdao
   instagram:
-  linkedin:
+  linkedin: tamminhdao
   pinterest:
   rss: # just type anything here for a working RSS icon
   twitter: 
