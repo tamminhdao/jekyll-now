@@ -3,10 +3,10 @@ layout: page
 title: Java and Test Driven Development
 ---
 
-After a week, I am slowly warming up to Java’s verbose syntax and strict typing. Does a function return something or not, what type of data does it return, what type of parameter does it take? Everything has to be clearly stated in the function declaration. Since I have only coded in JavaScript, this new way of doing thing takes a while to get used to. However, having these strict rules also improve clarity of intent, which I assume can be comforting especially when things get more complicated.
+After a week, I am slowly warming up to Java’s verbose syntax and strict typing. Does a function return something or not, what type of data does it return, what type of parameters does it take? Everything has to be clearly stated in the function declaration. Since I have only coded in JavaScript, this new way of doing thing takes a while to get used to. However, having these strict rules also improves clarity of intent, which I assume can be comforting especially when things get more complicated.
 
 
-A few things jump out to me as I transition from JavaScript to Java. In Java, there is no global variable, everything is wrapped in a class. If I want to shield something from being exposed or altered, I just label it private or final. This might not seem like a big deal to other people. However, coming from JavaScript where I know global variables are bad news yet have never been able to completely avoid them, this Java feature is like… I just arrive in a new city, and someone walks to me and hands me a hundred dollar bill as a “welcome to our city present! 
+A few things jump out to me as I transition from JavaScript to Java. In Java, there is no global variable, everything is wrapped in a class. If I want to shield something from being exposed or altered, I just label it private or final. This might not seem like a big deal to other people. However, coming from JavaScript where I know global variables are bad news yet have never been able to completely avoid them, this Java feature is like… I just arrive in a new city, and someone walks to me and hands me a hundred dollar bill as a “welcome to our city" present! 
 
 
 Another cool thing is method overloading. The below methods can co-exist in the same class. They have the same name, but different argument lists. This is legal in Java. No need to come up with different names.
