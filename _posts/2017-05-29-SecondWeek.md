@@ -8,9 +8,9 @@ I started reading this book: Apprenticeship Patterns - Guidance for the Aspiring
 The second chapter of the book is titled "Emptying the Cup". It's the idea that in order to learn and be receptive to learning, you have to keep an open mind, willing to try counter-intuitive approaches, let go of old habits. I've been programming for only a year. My cup is pretty empty to begin with. Nevertheless, I find this advice very helpful.
 
 My very first programming language was actually Python. My first line of code was:
-
+```python
 print("Hello World!")
-
+```
 I didn't write anything significant in Python, only used it to do some short exercises and learnt the most basic programming concepts. But to this day, Python has a special place in my heart. I think it's a great language to start coding with. The syntax is simple and reads almost like English.
 
 When I started Udacity front-end program and switched to Javascript, I didn't want to empty my cup. I didn't want to empty a single drop from my cup! I kept forgetting to put "var" at the beginning of every variable declaration and hated having to do it. Python didn't make me do that. I especially hated the cumbersome squiggly brackets. I hated the Javascript syntax until I eventually wrote enough code to get used to it. It took me much longer to get where I needed to be because I was resisting all the way. It's hard enough learning a new language with enthusiasm let alone holding a grudge against it from the start. So this time, going from JavaScript to Java while reading this chapter, I try not to compare the two languages. If I compare them, I am actually marketing Java to myself, actively thinking about the potential superior features of the language. I think it's working.
