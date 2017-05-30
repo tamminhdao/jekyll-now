@@ -23,4 +23,4 @@ There are two parts to a recursive function: the base case and the recursive cas
 - The base case gives a direct answer to the simplest version of the problem. It also serves as a break, preventing the function from going into an infinite loop.
 - The recursive case is where the function calls on a simpler version of itself.
 
-For a much better explanation of recursion with detailed examples, I recommend checking out <a href= https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230"> Grokking Algorithms: An illustrated guide for programmers and other curious people, by Aditya Bhargava.</a>
+For a much better explanation of recursion with detailed examples, I recommend checking out <a href= "https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230"> Grokking Algorithms: An illustrated guide for programmers and other curious people, by Aditya Bhargava.</a>
