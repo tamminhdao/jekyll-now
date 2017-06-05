@@ -1,3 +1,8 @@
+---
+layout: page
+title: A few thoughts about TDD as I know it
+---
+
 When I walked through Uncle Bob's bowling score kata powerpoint, one thing that really stood out to me was the way he refactored his tests to remove duplication and ugly comments. Not only did he write tests, but also held them in the highest standard. I am constantly reminded to write tests and clean up my code. Yet, my brain doesn't automatically extend the practice to "maintain your test" and "clean up your test". I can only speculate that while I was telling myself that tests are important, my mind still subconsciously saw them as secondary. Secondary to the code they accompany. After all, the production code is what gives life to our software, isn't it?
 
 Then I read Uncle Bob's blog post <a href="https://8thlight.com/blog/uncle-bob/2013/09/23/Test-first.html">Test First</a>. What is "test first"? I used to simply associate this term with the order of operation, i.e. we write the test before we write the code. But there is more. In this post, Uncle Bob presented readers with a dilemma. Imagine you have been developing a program with complete test suites, using proper test-driven development (TDD) along the way. Now for some reason, you can only preserve half of your program, either the code, or the test. Which half would you rather preserve?
