@@ -14,47 +14,49 @@ Last but not least: Don't be afraid to make drastic changes to your file. You ca
 
 
 ## Create a git repo:
-    `cd` into the directory
-    `git init`
+
+`cd` into the directory
+`git init`
 
 ## Make a commit in git:
 
-    `git add <filename >`
-    `git commit -m "descriptive commit message"`
-    `git push origin <branch>`
+`git add <filename >`
+`git commit -m "descriptive commit message"`
+`git push origin <branch>`
 
 ## Useful command:
-    `git status` - check if there is any file to be added or committed
-    `git log` - show a record of previous commits
+
+`git status` - check if there is any file to be added or committed
+`git log` - show a record of previous commits
 
 ## Create a new branch to develop a new feature/ functionality:
 
-    `git branch <branch name>`
-    `git checkout <branch name>`
+`git branch <branch name>`
+`git checkout <branch name>`
 
 or just use a oneliner:
-     `git checkout -b <branch name>`
+`git checkout -b <branch name>`
 
 *Note: always make a branch off master*
 
 ## Do a git rebase to put the working branch on top of the newly merged master branch:
 
-    on master: git pull (to sync with the lastest change on github repo)
-    on <branch>: `git rebase master`
+on master: git pull (sync with the latest change on github repo)
+on <branch>: `git rebase master`
 
-    If there are conflicts, fix them, then `git rebase --continue`
-    In case something went wrong during the conflict resolution, resort to `git reflog` and `git cherry-pick`
+If there are conflicts, fix them, then `git rebase --continue`
+In case something went wrong during the conflict resolution, resort to `git reflog` and `git cherry-pick`
 
 ## To work on the same repo from two computer, with the same gitHub account:
-    push all branches from computer 1 to designated gitHub repo
-    On computer 2: `git clone` (this only clone the master branch)
-        to pull a particular existing branch from gitHub:
-                    'git checkout <branch>' (git will automatically pull the existing branch and switch to that branch)
+* push all branches from computer 1 to designated gitHub repo
+* On computer 2: `git clone` (this only clone the master branch)
+                'git checkout <branch>' 
+                (git will automatically pull the existing branch and switch to that branch)
 
 ## What to look for in a pull request
-Last week Zack talked to us during Zagaku about his 5 steps to evaluate a PR. I thought it was a good guide:
-    1. Does the build pass?
-    2. What the PR supposed to do?
-    3. Does the PR do what it's supposed to do?
-    4. Sweat the small stuff: typo, format, white space
-    5. Assess the quality of the code
+Last week Zack talked to us during Zagaku about his 5 steps to evaluate a PR.
+1. Does the build pass?
+2. What the PR supposed to do?
+3. Does the PR do what it's supposed to do?
+4. Sweat the small stuff: typo, format, white space
+5. Assess the quality of the code
