@@ -55,7 +55,7 @@ If there are conflicts, fix them, then `git rebase --continue`
 
 In case something went wrong during the conflict resolution, resort to `git reflog` and `git cherry-pick`
 
-## To work on the same repo from two computer, with the same gitHub account:
+## To work on the same repo from different computers, with the same gitHub account:
 * On computer 1: push all commits in all branches to designated gitHub repo
 * On computer 2: 
 `git clone` (this only clone the master branch)
