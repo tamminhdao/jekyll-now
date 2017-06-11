@@ -1,6 +1,6 @@
 ---
 layout: page
-title: A few thoughts about TDD as I know it
+title: A few thoughts about TDD
 ---
 
 When I walked through Uncle Bob's bowling score kata powerpoint, one thing that really stood out to me was the way he refactored his tests to remove duplication and ugly comments. Not only did he write tests, but also held them in the highest standard. I am constantly reminded to write tests and clean up my code. Yet, my brain doesn't automatically extend the practice to "maintain your test" and "clean up your test". I can only speculate that while I was telling myself that tests are important, my mind still subconsciously saw them as secondary. Secondary to the code they accompany. After all, the production code is what gives life to our software, isn't it?
