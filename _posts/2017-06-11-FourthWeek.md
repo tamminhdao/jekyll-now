@@ -59,7 +59,7 @@ In case something went wrong during the conflict resolution, resort to `git refl
 * On computer 1: push all commits in all branches to designated gitHub repo
 * On computer 2: 
 `git clone` (this only clone the master branch)
-
+If work needs to be done on a particular branch: 
 `git checkout <branch>`
 (git will automatically pull the existing branch and switch to that branch)
 
