@@ -1,6 +1,6 @@
 ---
 layout: page
-title: The most basic intro to git/gitHub
+title: The most basic git/gitHub commands
 ---
 
 
@@ -21,7 +21,7 @@ Last but not least: Don't be afraid to make drastic changes to your file. You ca
 
 ## Make a commit in git:
 
-`git add <filename >`
+`git add <filename>`
 
 `git commit -m "descriptive commit message"`
 
@@ -47,7 +47,7 @@ or just use a one-liner:
 
 ## Do a git rebase to put the working branch on top of the newly merged master branch:
 
-on master: git pull (sync with the latest change on github repo)
+on master: `git pull` (sync with the latest change on github repo)
 
 on branch: `git rebase master`
 
@@ -56,14 +56,15 @@ If there are conflicts, fix them, then `git rebase --continue`
 In case something went wrong during the conflict resolution, resort to `git reflog` and `git cherry-pick`
 
 ## To work on the same repo from two computer, with the same gitHub account:
-* push all branches from computer 1 to designated gitHub repo
-* On computer 2: `git clone` (this only clone the master branch)
+* On computer 1: push all commits in all branches to designated gitHub repo
+* On computer 2: 
+`git clone` (this only clone the master branch)
 
-                'git checkout <branch>' 
-                (git will automatically pull the existing branch and switch to that branch)
+`git checkout <branch>`
+(git will automatically pull the existing branch and switch to that branch)
 
 ## What to look for in a pull request
-Last week Zack talked to us during Zagaku about his 5 steps to evaluate a PR.
+(note from Zack's Zagaku talk)
 1. Does the build pass?
 2. What the PR supposed to do?
 3. Does the PR do what it's supposed to do?
