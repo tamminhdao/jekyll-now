@@ -67,7 +67,10 @@ public class UserInputReceiverTest {
 To write this test, I need to first understand the concept of `stream`. A stream is a sequence of data. Think of a stream as a conveyor belt of input or output.
 The scanner I'm familiar with takes `System.in` as an argument. `System.in` happens to be an object of type InputStream. 
 Because `System.in` would not work in the test, I need to substitute it with another InputStream object (this action is called stubbing). 
-InputStream itself is an abstract class so I can't simply write: `InputStream stream = new InputStream("myInput".getBytes());`
+InputStream itself is an abstract class so I can't simply write:
+
+`InputStream stream = new InputStream("myInput".getBytes());`
+
 Instead, I need to find a concrete subclass of InputStream to wrap the string input in.
 The final test looks like this:
 
