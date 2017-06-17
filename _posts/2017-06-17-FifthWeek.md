@@ -1,0 +1,158 @@
+---
+layout: page
+title: I/O testing using Dependency Injection
+---
+
+This week, I worked on obtaining user input (cell selection input, to be specific) for TicTacToe. 
+I started out planning to do this the proper TDD way and immediately ran into problem. This was the first time I encountered i/o testing. 
+
+Since I couldn't imagine how the test would work, I decided to set TDD aside and just went straight for the code.
+This is how I did it the first round:
+
+```java
+public class UserInputReceiver {
+    private Scanner scanner = new Scanner(System.in);
+
+    public int obtainCellSelection() {
+        System.out.println("Enter your cell selection (1 - 9): ");
+        int cell = this.scanner.nextInt();
+        return cell;
+    }
+}
+```
+
+This code works. But I later learned that it cannot be tested. 
+Currently, my `UserInputReceiver` class instantiates a Scanner on its own, a Scanner that take `System.in` as argument. In another word, `scanner` is a dependency of `UserInputReceiver`. 
+When we run this code, there will be a user to enter this input. However, when we test, `System.in` became a problem because the test would just get stuck waiting for an input that will never arrive. 
+
+To cope with this, we can use dependency injection. What is dependency injection?
+This is a pretty good explanation from <a href="http://www.javaworld.com/article/2071914/excellent-explanation-of-dependency-injection--inversion-of-control-.html">javaworld.com</a>:
+```
+Any nontrivial application is made up of two or more classes that collaborate with each other to perform some business logic. Traditionally, each object is responsible for obtaining its own references to the objects it collaborates with (its dependencies). When applying DI, the objects are given their dependencies at creation time. In other words, dependencies are "injected" into objects.
+```
+
+Here is my code again, using dependency injection:
+
+```java
+public class UserInputReceiver {
+    private Scanner scanner;
+
+    // Instead of having the class initiate the dependency (scanner), the dependency is passed in via a constructor. 
+    public UserInputReceiver (Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public int obtainCellSelection() {
+        System.out.println("Enter your cell selection (1 - 9): ");
+        int cell = this.scanner.nextInt();
+        return cell;
+    }
+}
+```
+
+With the code properly set up with DI, let's turn to the test.
+I only got this far (i.e. nowhere) on my own:
+
+```java
+public class UserInputReceiverTest {
+    @Test
+    public void canObtainAndReturnCellSelection() {
+        Scanner scanner = new Scanner(???);
+        UserInputReceiver receiver = new UserInputReceiver(scanner);
+        int cell = receiver.obtainCellSelection();
+        assertEquals(cell, ???);
+    }
+}
+```
+
+To write this test, I need to first understand the concept of `stream`. A stream is a sequence of data. Think of a stream as a conveyor belt of input or output.
+The scanner I'm familiar with takes `System.in` as an argument. `System.in` happens to be an object of type InputStream. 
+Because `System.in` would not work in the test, I need to substitute it with another InputStream object (this action is called stubbing). 
+InputStream itself is an abstract class so I can't simply write: `InputStream stream = new InputStream("myInput".getBytes());`
+Instead, I need to find a concrete subclass of InputStream to wrap the string input in.
+The final test looks like this:
+
+```java
+public class UserInputReceiverTest {
+    @Test
+    public void canObtainAndReturnCellSelection() {
+        InputStream stream = new ByteArrayInputStream("99".getBytes());
+        Scanner scanner = new Scanner(stream);
+        UserInputReceiver receiver = new UserInputReceiver(scanner);
+        int cell = receiver.obtainCellSelection();
+        assertEquals(cell, 99);
+    }
+}
+```
+
+That was essentially 5 lines of code, but getting there was an epic struggle.
+I had a lot of help from my mentors and my fellow apprentices. Thank you all!
+
+I was more involved with the method above, but Cyrus also showed me another way, using Interface.
+I fell this post is not complete if I don't include it too.
+
+
+First, create an interface:
+
+```java
+public interface InputReceiver {
+    int returnInput();
+}
+```
+
+Second, create two scanner classes that implement this interface. 
+These scanners will be used as dependencies in our `UserInputReceiver`. 
+Because both classes implement the same interface, they each have a `returnInput()` method that return an `int`.
+
+```java
+public class TestScanner implements InputReceiver {
+    public int returnInput() {
+        return 100;
+    }
+}
+```
+
+```java
+public class ScannerImplementation implements InputReceiver {
+    public int returnInput() {
+        Scanner scanner = new Scanner(System.in);
+        int scannerInput = scanner.nextInt();
+        return scannerInput;
+    }
+}
+```
+
+Third, write the `UserInputReceiver` class using dependency injection:
+```java
+
+public class UserInputReceiver {
+    private InputReceiver inputReceiver;
+
+    public UserInputReceiver (InputReceiver receiver) {
+        this.inputReceiver = receiver;
+    }
+
+    public int obtainCellSelection() {
+        System.out.println("Enter your cell selection (1 - 9): ");
+        int cell = this.inputReceiver.returnInput();
+        return cell;
+    }
+}
+```
+
+Finally, the test:
+
+```java
+public class UserInputReceiverTest {
+    @Test
+    public void canCaptureAndReturnInput() {
+        TestScanner scanner = new TestScanner();
+        UserInputReceiver receiver = new UserInputReceiver(scanner);
+        int output = receiver.obtainCellSelection();
+        assertEquals(output, 100);
+    }
+}
+```
+Notice there is no mention of the real `ScannerImplementation` in this test. 
+`UserInputReceiver` is tested through the mock `TestScanner`.
+While the first approach try to verify that one can correctly obtain an user's input via a Java `Scanner`. The rationale of this approach is to trust that Java's `Scanner` class is all well and great and doesn't need to be tested further.
