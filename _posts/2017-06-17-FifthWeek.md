@@ -27,9 +27,8 @@ When we run this code, there will be a user to enter this input. However, when w
 
 To cope with this, we can use dependency injection. What is dependency injection?
 This is a pretty good explanation from <a href="http://www.javaworld.com/article/2071914/excellent-explanation-of-dependency-injection--inversion-of-control-.html">javaworld.com</a>:
-```
-Any nontrivial application is made up of two or more classes that collaborate with each other to perform some business logic. Traditionally, each object is responsible for obtaining its own references to the objects it collaborates with (its dependencies). When applying DI, the objects are given their dependencies at creation time. In other words, dependencies are "injected" into objects.
-```
+
+"Any nontrivial application is made up of two or more classes that collaborate with each other to perform some business logic. Traditionally, each object is responsible for obtaining its own references to the objects it collaborates with (its dependencies). When applying DI, the objects are given their dependencies at creation time. In other words, dependencies are "injected" into objects."
 
 Here is my code again, using dependency injection:
 
