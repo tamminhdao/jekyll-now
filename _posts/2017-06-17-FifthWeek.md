@@ -91,7 +91,7 @@ That was essentially 5 lines of code, but getting there was an epic struggle.
 I had a lot of help from my mentors and my fellow apprentices. Thank you all!
 
 I was more involved with the method above, but Cyrus also showed me another way, using Interface.
-I fell this post is not complete if I don't include it too.
+I feel this post is not complete if I don't include it too.
 
 
 First, create an interface:
