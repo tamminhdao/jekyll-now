@@ -36,7 +36,8 @@ Here is my code again, using dependency injection:
 public class UserInputReceiver {
     private Scanner scanner;
 
-    // Instead of having the class initiate the dependency (scanner), the dependency is passed in via a constructor. 
+    // Instead of having the class initiate the dependency (scanner)
+    // the dependency is passed in via a constructor. 
     public UserInputReceiver (Scanner scanner) {
         this.scanner = scanner;
     }
