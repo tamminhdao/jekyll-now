@@ -50,7 +50,7 @@ public class UserInputReceiver {
 ```
 
 With the code properly set up with DI, let's turn to the test.
-Let's write out the easy part first, and put some questions mark in the tricky parts.
+Let's write out the easy part first, and put some question marks in the tricky parts.
 
 ```java
 public class UserInputReceiverTest {
@@ -160,4 +160,4 @@ Notice there is no mention of the actual `ScannerImplementation` in this test.
 Regardless of the method, the test was essentially 5 lines of code. Getting there was a struggle.
 There are different opinions among developers about i/o testing, to test or not to test, and how to test. I wanted to do this to have an idea how it might be done. 
 Despite the struggle, I'm glad I've gone through this exercise. Moreover, I am happy to have explored various new concepts along the way, concepts not only specific to i/o testing but are good to know in general.
-Last but not least, I'm lucky to have my mentors and my fellow apprentices to talk through my difficulties and have them point me to the right direction. Thank you!
+Last but not least, I'm lucky to have my mentors and my fellow apprentices to talk through my difficulties and have them point me to the right direction. Thank you all!
