@@ -50,7 +50,7 @@ public class UserInputReceiver {
 ```
 
 With the code properly set up with DI, let's turn to the test.
-I only got this far (i.e. nowhere) on my own:
+Let's write out the easy part first, and put some questions mark in the tricky parts.
 
 ```java
 public class UserInputReceiverTest {
@@ -64,7 +64,7 @@ public class UserInputReceiverTest {
 }
 ```
 
-To write this test, I need to first understand the concept of `stream`. A stream is a sequence of data. Think of a stream as a conveyor belt of input or output.
+To complete this test, I need to first understand the concept of `stream`. A stream is a sequence of data. Think of a stream as a conveyor belt of input or output.
 The scanner I'm familiar with takes `System.in` as an argument. `System.in` happens to be an object of type InputStream. 
 Because `System.in` would not work in the test, I need to substitute it with another InputStream object (this action is called stubbing). 
 InputStream itself is an abstract class so I can't simply write:
@@ -86,9 +86,6 @@ public class UserInputReceiverTest {
     }
 }
 ```
-
-That was essentially 5 lines of code, but getting there was an epic struggle.
-I had a lot of help from my mentors and my fellow apprentices. Thank you all!
 
 I was more involved with the method above, but Cyrus also showed me another way, using Interface.
 I feel this post is not complete if I don't include it too.
@@ -155,6 +152,12 @@ public class UserInputReceiverTest {
     }
 }
 ```
-Notice there is no mention of the real `ScannerImplementation` in this test. 
+Notice there is no mention of the actual `ScannerImplementation` in this test. 
 `UserInputReceiver` is tested through the mock `TestScanner`.
-While the first approach try to verify that one can correctly obtain an user's input via a Java `Scanner`. The rationale of this approach is to trust that Java's `Scanner` class is all well and great and doesn't need to be tested further.
+
+---------
+
+Regardless of the method, the test was essentially 5 lines of code. Getting there was a struggle.
+There are different opinions among developers about i/o testing, to test or not to test, and how to test. I wanted to do this to have an idea how it might be done. 
+Despite the struggle, I'm glad I've gone through this exercise. Moreover, I am happy to have explored various new concepts along the way, concepts not only specific to i/o testing but are good to know in general.
+Last but not least, I'm lucky to have my mentors and my fellow apprentices to talk through my difficulties and have them point me to the right direction. Thank you!
