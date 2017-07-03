@@ -1,8 +1,10 @@
 ---
 layout: page
-title: Algorithm for an expandable TicTacToe grid
+title: Draw an expandable TicTacToe grid
 ---
 
+![](/images/gridNote.jpg){:class="img-responsive"}
+*This is my favorite thing in this (way too) long post so I put it on top*  
 
 As I work on my TicTacToe game, more and more features are added each week. 
 I went from a very simple traditional X vs O game to letting the players pick any string as their symbols of choice.
@@ -115,7 +117,7 @@ We will have to change this in the future.
 
 Step 3: Put the row and the divider together
 
-Our ` drawARow()` takes an index of the first cell in each row so it knows which row to draw.
+Our `drawARow()` takes an index of the first cell in each row so it knows which row to draw.
 The for loop in this `getGrid()` function steps through the cell indexes in strategic interval so it can pick out the first index in each row and pass that on to `drawARow()`.
 The function alternates between drawing a row and drawing a line of divider, until it hits the first index of the last row then it skips the divider. 
 
@@ -199,7 +201,7 @@ Step 3: Adjust the line of divider, the number of dashes has to be calculated ac
 
 At this point we have a pretty flexible grid, except when players choose long strings as their symbols, the grid is no longer square but rather rectangular looking.
 
-
+```java
     1    |    2    |    3    
 --------- --------- --------- 
     4    |    5    |    6    
@@ -212,7 +214,7 @@ At this point we have a pretty flexible grid, except when players choose long st
                                     --------- --------- --------- 
                                              |         |         
 
-
+```
 So we need to fix that. 
 
 **Stage 3: Add vertical padding to square the grid**
@@ -245,7 +247,7 @@ I've tested it with 4x4 and 5x5 grid and 3 seems to be truly the magic number. P
 The final version of this Grid class can be found on my <a href="https://github.com/tamminhdao/tictactoe-java">tictactoe-java</a> repo on gitHub. But here is the result from a few tests I ran.
 
 A 4x4 board with a symbol of 6 characters:
-
+```java
         |        |        |        
  ABCDEF |  $$$   | ABCDEF |  $$$   
         |        |        |        
@@ -261,12 +263,12 @@ A 4x4 board with a symbol of 6 characters:
         |        |        |        
  ABCDEF |  $$$   | ABCDEF |  $$$   
         |        |        |        
-
+```
 
 
 A 5x5 board with a symbol of 9 characters:        
 
-
+```java
            |           |           |           |           
            |     O     | abcdehijk |           |           
            |           |           |           |           
@@ -291,6 +293,6 @@ A 5x5 board with a symbol of 9 characters:
  abcdehijk |           |           |           |           
            |           |           |           |           
            |           |           |           |           
-
+```
 
 Such pretty squares! 
