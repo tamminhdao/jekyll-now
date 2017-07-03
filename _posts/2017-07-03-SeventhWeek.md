@@ -4,7 +4,7 @@ title: Draw an expandable TicTacToe grid
 ---
 
 ![](/images/gridNote.jpg){:class="img-responsive"}
-*This is my favorite thing in this (way too) long post so I put it on top*  
+*Note from a day of hard work*
 
 As I work on my TicTacToe game, more and more features are added each week. 
 I went from a very simple traditional X vs O game to letting the players pick any string as their symbols of choice.
@@ -23,6 +23,7 @@ However, in general, when presented with a complicated problem, a good strategy 
 
 
 **Stage 1: Draw a grid that works only which symbol length of 1 such as X and O**
+
 For now, we will assume that the board only takes symbol with string length of 1.
 Since the two symbols are of the same length, the grid will automatically be a square and the symbols can easily be centered
 in its cell. We can just focus on the first two requirements about the grid lines and the dimension.
@@ -161,7 +162,7 @@ Loop through all the cells in the board, get the length of each element and add 
     }
 ```
 
-Step 2: Center the shorter symbol
+Step 2: Center the shorter symbol:
 My first thought when I faced this problem was to pad both right and left side of the shorter symbol with a certain number of space character.
 In the end, I discovered a library which does a much better job. If there were no such library, I would have started to pad left and right. 
 
@@ -234,20 +235,31 @@ If the row of padding is below the symbol, the pattern has to change a little
 The exact number of space character in each cell is identical to the number of dashes used to draw a divider unit. There is a chance to refactor and reuse the function `drawingDividerUnit()`. 
 
 At this point, the simplest approach is to test hardcode these upper and lower padding rows into `drawARow()`, print out the grid with different symbols of different length and see if a pattern emerges.
-I had a table to track how many row of padding should be added according to the max length of the symbols.
+I had a table to track how many row of padding should be added according to the max length of the symbols. The picture at the top of the post. Here it is again:
 
 ![](/images/gridNote.jpg){:class="img-responsive"}
 
-In the end, the pattern I spotted was: The total number of padding rows needed = Max length of symbol / 3. (take the quotient, ignore the remainder).
+In the end, the pattern I spotted was: 
+
+The total number of padding rows needed = Max length of symbol / 3. (take the quotient, ignore the remainder).
+
 After that it's easy to divide the total in half, half padded on top half padded on the bottom, so that our symbol is centered vertically as well as horizontally. 
 Why divided by 3? I called this number "WIDTH_TO_HEIGHT_RELATIVE_CONVERSION_UNIT". 
 I've tested it with 4x4 and 5x5 grid and 3 seems to be truly the magic number. Probably because the length of three character next to each other is roughly even with the height of one horizontal line.
-
 
 The final version of this Grid class can be found on my <a href="https://github.com/tamminhdao/tictactoe-java">tictactoe-java</a> repo on gitHub. But here is the result from a few tests I ran.
 
 A 4x4 board with a symbol of 6 characters:
 ```java
+
+        |        |        |        
+ ABCDEF |  $$$   | ABCDEF |  $$$   
+        |        |        |        
+-------- -------- -------- --------
+        |        |        |        
+ ABCDEF |  $$$   | ABCDEF |  $$$   
+        |        |        |        
+-------- -------- -------- --------
         |        |        |        
  ABCDEF |  $$$   | ABCDEF |  $$$   
         |        |        |        
@@ -255,20 +267,14 @@ A 4x4 board with a symbol of 6 characters:
         |        |        |        
  ABCDEF |  $$$   | ABCDEF |  $$$   
         |        |        |        
--------- -------- -------- -------- 
-        |        |        |        
- ABCDEF |  $$$   | ABCDEF |  $$$   
-        |        |        |        
--------- -------- -------- -------- 
-        |        |        |        
- ABCDEF |  $$$   | ABCDEF |  $$$   
-        |        |        |        
+
 ```
 
 
 A 5x5 board with a symbol of 9 characters:        
 
 ```java
+
            |           |           |           |           
            |     O     | abcdehijk |           |           
            |           |           |           |           
@@ -293,6 +299,7 @@ A 5x5 board with a symbol of 9 characters:
  abcdehijk |           |           |           |           
            |           |           |           |           
            |           |           |           |           
+
 ```
 
 Such pretty squares! 
