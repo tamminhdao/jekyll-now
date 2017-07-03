@@ -27,11 +27,13 @@ in its cell. We can just focus on the first two requirements about the grid line
 
 This is how a 3x3 grid would look like:
 
+```java
  X | O | X 
 --- --- ---
  O | X | O 
 --- --- ---
  X |   |   
+```
 
 In order to draw, the Grid class must have information about the board, its dimension and the total number of cells.
 
@@ -61,15 +63,15 @@ Step 1: Draw each row
 Notice that in a square grid indexing from 0, the indexes in last column divided by the number of cells per row will always result in a remainder of "the number of cells per row minus one". This pattern will help us draw all the vertical dividers between cells within a row without having an extra divider after the very last cell in each row.
 
 A 3x3 board: the number of cells per row minus one = 3 - 1 = 2
-
-             0 | 1 | 2                  2 % 3 = 2
-            --- --- --- 
-             3 | 4 | 5                  5 % 3 = 2
-            --- --- --- 
-             6 | 7 | 8                  8 % 3 = 2
-
+```java
+ 0 | 1 | 2                  2 % 3 = 2
+--- --- --- 
+ 3 | 4 | 5                  5 % 3 = 2
+--- --- --- 
+ 6 | 7 | 8                  8 % 3 = 2
+```
 A 5x5 board: the number of cells per row minus one = 5 - 1 = 4
-
+```java
  0  | 1  | 2  | 3  | 4                  4 % 5 = 4
 ---- ---- ---- ---- ---- 
  5  | 6  | 7  | 8  | 9                  9 % 5 = 4
@@ -79,7 +81,7 @@ A 5x5 board: the number of cells per row minus one = 5 - 1 = 4
  15 | 16 | 17 | 18 | 19                19 % 5 = 4
 ---- ---- ---- ---- ---- 
  20 | 21 | 22 | 23 | 24                24 % 5 = 4
-
+```
 
 ```java
     private String drawARow(int startingCell) {
@@ -198,17 +200,17 @@ Step 3: Adjust the line of divider, the number of dashes has to be calculated ac
 At this point we have a pretty flexible grid, except when players choose long strings as their symbols, the grid is no longer square but rather rectangular looking.
 
 
-                                1    |    2    |    3    
-                            --------- --------- --------- 
-                                4    |    5    |    6    
-                            --------- --------- --------- 
-                                7    |    8    |    9     
+    1    |    2    |    3    
+--------- --------- --------- 
+    4    |    5    |    6    
+--------- --------- --------- 
+    7    |    8    |    9     
 
-                                                                         |         | loooong
-                                                                --------- --------- --------- 
-                                                                         |   sqw   |         
-                                                                --------- --------- --------- 
-                                                                         |         |         
+                                             |         | loooong
+                                    --------- --------- --------- 
+                                             |   sqw   |         
+                                    --------- --------- --------- 
+                                             |         |         
 
 
 So we need to fix that. 
@@ -219,14 +221,20 @@ The trick here is to decide when to add vertically padding, how many lines of pa
 I know the padding depends on the length of the longer symbol which determine the width of a cell. But the relationship between the vertical line height and the cell width is not a 1:1 relationship.
 I need to figure out the appropriate ratio. 
 
-If the row of padding is on top of the symbol, the pattern is something like this `"       |       |       + \n"`
-If the row of padding is below the symbol, the pattern has to change a little `"\n +       |       |       "`
+If the row of padding is on top of the symbol, the pattern is something like this
+```java
+ "       |       |       + \n"
+ ```
+If the row of padding is below the symbol, the pattern has to change a little 
+```java
+"\n +       |       |       "
+```
 The exact number of space character in each cell is identical to the number of dashes used to draw a divider unit. There is a chance to refactor and reuse the function `drawingDividerUnit()`. 
 
 At this point, the simplest approach is to test hardcode these upper and lower padding rows into `drawARow()`, print out the grid with different symbols of different length and see if a pattern emerges.
 I had a table to track how many row of padding should be added according to the max length of the symbols.
 
-![](/Users/sabbas/tamminhdao.github.io/images/gridNote.jpg){:class="img-responsive"}
+![](/images/gridNote.jpg){:class="img-responsive"}
 
 In the end, the pattern I spotted was: The total number of padding rows needed = Max length of symbol / 3. (take the quotient, ignore the remainder).
 After that it's easy to divide the total in half, half padded on top half padded on the bottom, so that our symbol is centered vertically as well as horizontally. 
