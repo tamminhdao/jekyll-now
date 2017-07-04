@@ -63,6 +63,7 @@ My approach is to
 3. Put the row and the divider together to construct the grid
 
 Step 1: Draw each row
+
 Notice that in a square grid indexing from 0, the indexes in last column divided by the number of cells per row will always result in a remainder of "the number of cells per row minus one". This pattern will help us draw all the vertical dividers between cells within a row without having an extra divider after the very last cell in each row.
 
 A 3x3 board: the number of cells per row minus one = 3 - 1 = 2
