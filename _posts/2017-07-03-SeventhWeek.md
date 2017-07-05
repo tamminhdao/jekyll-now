@@ -18,7 +18,7 @@ This week, I finally got to a point where I can dynamically draw a pretty nice l
 * the symbols have to center in the middle of their cells
 
 This turned out to be quite an interesting challenge for me. 
-While it was definitely not easy, the requirements were added incrementally so I was always solving only one problem at a time. However, in general, when presented with a complicated problem, a good strategy is to start with a simpler version of the big problem and build on from there.
+While it was definitely not easy, the requirements were added incrementally so I was always solving only one problem at a time. In general, when presented with a complicated problem, a good strategy is to start with a simpler version of the big problem and build on from there.
 
 
 **Stage 1: Draw a grid that works only which symbol length of 1 such as X and O**
