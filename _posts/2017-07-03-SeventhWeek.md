@@ -1,32 +1,31 @@
 ---
 layout: page
-title: Draw an expandable TicTacToe grid
+title: An expandable TicTacToe grid
 ---
 
 ![](/images/gridNote.jpg){:class="img-responsive"}
-*Note from a day of hard work*
+*Notes from a day of hard work*
 
 As I work on my TicTacToe game, more and more features are added each week. 
 I went from a very simple traditional X vs O game to letting the players pick any string as their symbols of choice.
 My current game is played on a 3x3 board but eventually it will also have the options to play on a 4x4, 5x5, etc... 
 With each new feature, I have to improve the algorithm to draw my TicTacToe grid to the console.
-This week, I finally get to a point where I can dynamically draw a pretty nice looking grid that meets all the following requirements:
+This week, I finally got to a point where I can dynamically draw a pretty nice looking grid that meets all the following requirements:
 
 * is a traditional looking tictactoe square grid which has no outside border but only the inner lines which divide the cells
-* can be any dimension (3x3, 4x4, 5x5 etc...)
+* can be of any dimension (3x3, 4x4, 5x5 etc...)
 * can adjust to any length of the symbols input by players
-* the symbols has to center in the middle of its cell
+* the symbols have to center in the middle of their cells
 
-This has turned out to be quite an interesting challenge for me. 
-While it's definitely not easy, the requirements were added incrementally so I was always solve only one problem at a time. This is by design, because I am still learning. 
-However, in general, when presented with a complicated problem, a good strategy is to start with a simpler version of the big problem and build on from there.
+This turned out to be quite an interesting challenge for me. 
+While it was definitely not easy, the requirements were added incrementally so I was always solving only one problem at a time. In general, when presented with a complicated problem, a good strategy is to start with a simpler version of the big problem and build on from there.
 
 
 **Stage 1: Draw a grid that works only which symbol length of 1 such as X and O**
 
-For now, we will assume that the board only takes symbol with string length of 1.
+For now, we will assume that the board only takes symbols with string length of 1.
 Since the two symbols are of the same length, the grid will automatically be a square and the symbols can easily be centered
-in its cell. We can just focus on the first two requirements about the grid lines and the dimension.
+in their cells. We can just focus on the first two requirements about the grid lines and the dimension.
 
 This is how a 3x3 grid would look like:
 
@@ -63,6 +62,7 @@ My approach is to
 3. Put the row and the divider together to construct the grid
 
 Step 1: Draw each row
+
 Notice that in a square grid indexing from 0, the indexes in last column divided by the number of cells per row will always result in a remainder of "the number of cells per row minus one". This pattern will help us draw all the vertical dividers between cells within a row without having an extra divider after the very last cell in each row.
 
 A 3x3 board: the number of cells per row minus one = 3 - 1 = 2
@@ -144,7 +144,7 @@ The function alternates between drawing a row and drawing a line of divider, unt
 
 At this stage, the players should be able to pick any string of any length as their symbols of choice. The two symbols do not neccessary have the same length. 
 A few things we have to adjust with our grid:
-1. If the two symbols are of different length, we need to find out the length of the longer string and set that as the width of each cells.
+1. If the two symbols are of different length, we need to find out the length of the longer string and set that as the width of each cell.
 2. The longer string will fit snuggly in each cell space. We need to find a way to center the shorter string in the middle of the cell.
 3. Our divider unit (--- ) cannot be hardcoded anymore.
 
@@ -245,11 +245,11 @@ The total number of padding rows needed = Max length of symbol / 3. (take the qu
 
 After that it's easy to divide the total in half, half padded on top half padded on the bottom, so that our symbol is centered vertically as well as horizontally. 
 Why divided by 3? I called this number "WIDTH_TO_HEIGHT_RELATIVE_CONVERSION_UNIT". 
-I've tested it with 4x4 and 5x5 grid and 3 seems to be truly the magic number. Probably because the length of three character next to each other is roughly even with the height of one horizontal line.
+I've tested it with 4x4 and 5x5 grid and 3 seems to be truly the magic number. Probably because the length of three characters next to each other is roughly even with the height of one horizontal line.
 
 The final version of this Grid class can be found on my <a href="https://github.com/tamminhdao/tictactoe-java">tictactoe-java</a> repo on gitHub. But here is the result from a few tests I ran.
 
-A 4x4 board with a symbol of 6 characters:
+A 4x4 board with symbols of 6 and 3 character long:
 ```java
 
         |        |        |        
@@ -271,7 +271,7 @@ A 4x4 board with a symbol of 6 characters:
 ```
 
 
-A 5x5 board with a symbol of 9 characters:        
+A 5x5 board with symbols of 1 and 9 character long:        
 
 ```java
 
