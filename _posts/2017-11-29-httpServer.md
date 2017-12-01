@@ -10,11 +10,6 @@ This blog is my attempt of explaining (to myself) `http` and `TCP/IP` without ge
 
 ### The Internet
 
-```ruby
-Tam: I just realized that I do not know anything about the internet.
-Eric: Me neither. I just take advantage of it!
-```
-
 The internet is a bunch of computers talking to each other. Some computers have information stored on them to share with others, we call them servers. Most computers, yours and mine included, just want to acquire information, we call them clients. The clients are the one initiating a conversation; they reach out to the servers requesting information. The servers keep their ears out for requests and response to them.
 
 To be able to communicate with each other, computers have to follow the same protocols. A protocol suite is a collection of protocols that are designed to work together. Pretty much everything on the web runs on the TCP/IP suite, which is named after the Transmission Control Protocol (TCP) and the Internet Protocol (IP).
