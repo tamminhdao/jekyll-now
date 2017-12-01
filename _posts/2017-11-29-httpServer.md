@@ -9,10 +9,10 @@ This blog is my attempt of explaining (to myself) `http` and `TCP/IP` without ge
 
 ### The Internet
 
-```
+`
 Tam: I just realized that I don't know anything about the internet.
 Eric: Me neither. I just take advantage of it!
-```
+`
 
 The internet is a bunch of computers talking to each other. Some computers have information stored on them to share with others, we call them servers. Most computers, yours and mine included, just want to acquire information, we call them clients. The clients are the one initiating a conversation; they reach out to the servers requesting information. The servers keep their ears out for requests and response to them.
 
@@ -20,7 +20,7 @@ To be able to communicate with each other, computers have to follow the same pro
 
 TCP is a connection oriented protocol and is used to provides a reliable end to end connection. It has built in error checking and will re-transmit missing packets. IP is the main networking protocol. These two are not the only two protocols in the suite, but they are the most common ones.
 
-![](/images/TCPmodel.jpeg){:class="img-responsive"}
+![](/images/TCPmodel.png){:class="img-responsive"}
 
 ### Here comes the socket
 
@@ -51,9 +51,11 @@ HTTP is stateless. Once a request is fulfilled, the server doesn't keep track of
 In order for to be understood, HTTP requests and responses have to follow certain formats.
 
 ![](/images/httpRequest.png){:class="img-responsive"}
+
 *Anatomy of an http request*
 
 ![](/images/httpResponse.png){:class="img-responsive"}
+
 *Anatomy of an http response*
 
 The data that are sent back and forth between the server and the client is always a stream of bytes representing text, image, audio, etc... To tell the receiver what to do with these bytes, the sender specifies the media type of the source in the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type">content-type header</a>.
