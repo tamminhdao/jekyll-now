@@ -8,17 +8,11 @@ title: How do computers communicate?
 > *Eric: "Oh, me neither. I just take advantage of it."*
 
 
-
-To be able to write an http server from scratch, I spent some time learning about the Internet's communication protocols. This is a monster of a topic. I started googling `http protocol`, which led me to `TCP/IP` which in turn led to the `internet protocol suite` and the `OSI model`. It is very easy to have a zillion tabs opened while being utterly confused.
-
-This blog is my attempt of explaining (to myself) `http` and `TCP/IP` without getting too bogged down by the low level details. There will be analogies, since that's my preferred way to understand new concepts. Disclaimer: I did not come up with these analogies, only hand-picked them from a variety of articles I read.
-
-
 ### The Internet
 
-The internet is a bunch of computers talking to each other. Some computers have information stored on them to share with others, we call them servers. Most computers, yours and mine included, just want to acquire information, we call them clients. The clients are the one initiating a conversation; they reach out to the servers requesting information. The servers keep their ears out for requests and response to them.
+The internet is *just* a bunch of computers talking to each other. Some computers have information stored on them to share with others, we call them servers. Most computers, yours and mine included, just want to acquire information, we call them clients. The clients are the one initiating a conversation; they reach out to the servers requesting information. The servers keep their ears out for requests and response to them.
 
-To be able to communicate with each other, computers have to follow the same protocols. A protocol suite is a collection of protocols that are designed to work together. Pretty much everything on the web runs on the TCP/IP suite, which is named after the Transmission Control Protocol (TCP) and the Internet Protocol (IP).
+In order to communicate with each other, computers have to follow the same protocols. A protocol suite is a collection of protocols that are designed to work together. Pretty much everything on the web runs on the TCP/IP suite, which is named after the Transmission Control Protocol (TCP) and the Internet Protocol (IP).
 
 TCP is a connection oriented protocol and is used to provides a reliable end to end connection. It has built in error checking and will re-transmit missing packets. IP is the main networking protocol. These two are not the only two protocols in the suite, but they are the most common ones.
 
@@ -59,10 +53,15 @@ In order for to be understood, HTTP requests and responses have to follow certai
 *Anatomy of an http response*
 ![](/images/httpResponse.png){:class="img-responsive"}
 
-The data that are sent back and forth between the server and the client is always a stream of bytes representing text, image, audio, etc... To tell the receiver what to do with these bytes, the sender specifies the media type of the source in the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type">content-type header</a>.
+On the request, the HTTP method is almost always either "GET" (to fetch information) or "POST" (to submit form data or upload files).
+On the response, the status code is a number indicating what happened when the request was processed: 200 means "everything worked", 404 means "not found", and other codes have other meanings. The status phrase repeats that information in a human-readable phrase like "OK" or "not found".
+
+On both the request and the response, http headers allow the client and the server to pass along addition information. They look like key-value pairs; however, one key can sometimes have multiple values. Here is a long list of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">headers</a>.
+
+Finally, the body includes any extra data associated with the request or response. Data sent back and forth between the server and the client is always a stream of bytes. To tell the receiver what these bytes represent (text, image, or audio, etc...) the sender specifies the media type of the source in the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type">content-type header</a>.
 
 
-### Resources
+### Reference
 1. <a href="http://www.steves-internet-guide.com/internet-protocol-suite-explained/">The TCP/IP Protocol Suite Explained for Beginners</a>
 2. <a href="https://docs.oracle.com/javase/tutorial/networking/sockets/index.html">All About Sockets</a>
 3. <a href="http://aosabook.org/en/500L/a-simple-web-server.html">A Simple Web Server</a>
