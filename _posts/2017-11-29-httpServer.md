@@ -4,6 +4,7 @@ title: How do computers communicate?
 ---
 
 *Tam: "I just realize that I know nothing about the internet!"
+
 Eric: "Oh, me neither. I just take advantage of it."*
 
 
