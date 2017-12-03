@@ -10,17 +10,18 @@ Tests with Quick and Nimble.
 1. `mkdir kata`
 2. `cd kata`
 3. `swift package init --type executable`
+
 *`--type executable` is important, otherwise the package is created as a library*
 
 At this point the project structure looks like this:
-.
+`.
 ├── Package.swift
 ├── README.md
 ├── Sources
 │   └── kata
 │       └── main.swift
 └── Tests
-
+`
 4. `cd Sources`
 5. `mkdir bowling`
 6. `cd bowling`
@@ -34,7 +35,7 @@ Move back to the root folder
 Move back to the root folder
 
 At this point the project structure looks like this:
-.
+`.
 ├── Package.swift
 ├── README.md
 ├── Sources
@@ -45,9 +46,10 @@ At this point the project structure looks like this:
 └── Tests
     └── bowlingSpec
         └── bowlingSpec.swift
-
+`
 11. `vim Package.swift`
-Edit the file to include Quick and Nimble as dependencies
+
+Edit the file to include Quick and Nimble as dependencies.
 The file should look like this in the end:
 
 ```swift
