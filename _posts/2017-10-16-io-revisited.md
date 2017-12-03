@@ -1,6 +1,6 @@
 ---
 layout: page
-title: i/o testing revisited
+title: I/O testing revisited
 ---
 
 While working on my current project, I have to deal with obtaining input and publishing output for my program.
