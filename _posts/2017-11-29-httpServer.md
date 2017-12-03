@@ -8,6 +8,7 @@ title: How do computers communicate?
 > *Eric: "Oh, me neither. I just take advantage of it."*
 
 
+
 To be able to write an http server from scratch, I spent some time learning about the Internet's communication protocols. This is a monster of a topic. I started googling `http protocol`, which led me to `TCP/IP` which in turn led to the `internet protocol suite` and the `OSI model`. It is very easy to have a zillion tabs opened while being utterly confused.
 
 This blog is my attempt of explaining (to myself) `http` and `TCP/IP` without getting too bogged down by the low level details. There will be analogies, since that's my preferred way to understand new concepts. Disclaimer: I did not come up with these analogies, only hand-picked them from a variety of articles I read.
