@@ -28,12 +28,14 @@ At this point the project structure looks like this:
 5. `mkdir bowling`
 6. `cd bowling`
 7. `touch bowling.swift`
+
 Move back to the root folder
 
 7. `cd Tests`
 8. `mkdir bowlingSpec`
 9. `cd bowlingSpec`
 10. `touch bowlingSpec.swift`
+
 Move back to the root folder
 
 At this point the project structure looks like this:
