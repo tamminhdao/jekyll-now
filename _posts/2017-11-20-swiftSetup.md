@@ -3,8 +3,8 @@ layout: page
 title: Set up a Swift project
 ---
 
+Using the <a href="https://github.com/tamminhdao/swiftBowling">bowling kata</a> as an example.
 Step by step instruction to set up a project on the command line with the Swift package manager.
-Using the bowling kata setup as an example.
 Tests with Quick and Nimble.
 
 1. `mkdir kata`
