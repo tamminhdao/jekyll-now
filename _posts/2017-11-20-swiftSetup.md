@@ -95,4 +95,5 @@ let package = Package(
 14. `swift package generate-xcodeproj`
 
 To run a swift project: `swift run`
+
 To run all tests: `swift test`
