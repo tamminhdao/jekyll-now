@@ -3,7 +3,7 @@ layout: page
 title: Set up a Swift project
 ---
 
-Step by step instruction to set up a project on the command line using the Swift package manager.
+Step by step instruction to set up a project on the command line with the Swift package manager.
 Using the bowling kata setup as an example.
 Tests with Quick and Nimble.
 
@@ -93,3 +93,6 @@ let package = Package(
 12. `swift package update`
 13. `swift build`
 14. `swift package generate-xcodeproj`
+
+To run a swift project: `swift run`
+To run all tests: `swift test`
