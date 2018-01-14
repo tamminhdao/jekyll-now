@@ -19,8 +19,11 @@ In chapter 4 of Practical Object-Oriented Design in Ruby, Sandi Metz introduces 
 
 ![](/images/DemoDiagram.png){:class="img-responsive"}
 
-
 I like these diagrams. I have yet to use them the way Metz uses them to brainstorm design, but I have been using them to draw out my existing system, or when I read someone's code, I have experimented drawing out their system using these diagrams. It feels like having an aerial view of the system. I can see how things connect, where the busy actions take place and identify troubles (not all, but some) in my design.
 
-
 ![](/images/serverDiagram.jpg){:class="img-responsive"}
+
+Useful resources on sequence diagrams from Udacity:
+1. https://www.youtube.com/watch?v=6Uivxxobu0c
+2. https://www.youtube.com/watch?v=XIQKt5Bs7II
+3. https://www.youtube.com/watch?v=Vjb86eQgHsA
