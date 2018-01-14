@@ -23,4 +23,4 @@ I like these diagrams. I have yet to use them the way Metz uses them to brainsto
 
 ![](/images/serverDiagram.jpg){:class="img-responsive"}
 
-Useful resources on sequence diagrams from Udacity <a href="https://www.youtube.com/watch?v=6Uivxxobu0c"> here </a>, <a href="https://www.youtube.com/watch?v=XIQKt5Bs7II" here </a> and <a href="https://www.youtube.com/watch?v=Vjb86eQgHsA"> here </a>.
+Useful resources on sequence diagrams from Udacity <a href="https://www.youtube.com/watch?v=6Uivxxobu0c"> here </a>, <a href="https://www.youtube.com/watch?v=XIQKt5Bs7II"> here </a> and <a href="https://www.youtube.com/watch?v=Vjb86eQgHsA"> here </a>.
